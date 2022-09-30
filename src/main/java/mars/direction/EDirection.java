@@ -1,5 +1,7 @@
 package mars.direction;
 
+import mars.Coordinate;
+
 public enum EDirection implements Direction {
     NORTH("N","W","E"),
     EAST("E", "N", "S"),
@@ -43,5 +45,9 @@ public enum EDirection implements Direction {
             }
         }
         return null;
+    }
+
+    public Coordinate moveVector() {
+        throw new UnsupportedOperationException();
     }
 }

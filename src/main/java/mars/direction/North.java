@@ -1,5 +1,7 @@
 package mars.direction;
 
+import mars.Coordinate;
+
 public class North implements Direction {
     @Override
     public String asString() {
@@ -13,5 +15,10 @@ public class North implements Direction {
     @Override
     public Direction rotateRight() {
         return new East();
+    }
+
+    @Override
+    public Coordinate moveVector() {
+        return new Coordinate(0,1);
     }
 }
