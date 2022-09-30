@@ -27,7 +27,8 @@ public class GPS {
     }
 
     public void moveForward() {
-        coordinate = new Coordinate(coordinate.x, coordinate.y+1);
+        int y = (coordinate.y+1) % VAR.GRID_SIZE;
+        coordinate = new Coordinate(coordinate.x, y);
     }
 
     public int getX() {
