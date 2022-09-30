@@ -16,7 +16,19 @@ public enum EDirection {
         this.right = right;
     }
 
-    public EDirection right() {
+    public static EDirection getDirectionFor(String value) {
+        for (EDirection direction : values()) {
+            if (direction.value.equals(value))
+                return direction;
+        }
+        return null;
+    }
+
+    public String asString() {
+        return value;
+    }
+
+    public EDirection rotateRight() {
         for (EDirection direction : values()) {
             if (direction.value == this.right)
                 return direction;
@@ -24,7 +36,7 @@ public enum EDirection {
         return null;
     }
 
-    public EDirection left() {
+    public EDirection rotateLeft() {
         for (EDirection direction : values()) {
             if (direction.value == this.left) {
                 return direction;

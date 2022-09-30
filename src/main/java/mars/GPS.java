@@ -3,23 +3,10 @@ package mars;
 import mars.direction.*;
 
 public class GPS {
-    Direction direction;
+    EDirection direction;
     public GPS(String setupDirection) {
         String[] args = setupDirection.split(":");
-        switch(args[2]) {
-            case "E":
-                direction = new East();
-                break;
-            case "N":
-                direction = new North();
-                break;
-            case "S":
-                direction = new South();
-                break;
-            case "W":
-                direction = new West();
-                break;
-        }
+        direction = EDirection.getDirectionFor(args[2]);
     }
 
     public String getDirection() {
