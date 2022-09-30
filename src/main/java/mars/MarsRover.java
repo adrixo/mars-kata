@@ -18,7 +18,14 @@ public class MarsRover {
     }
 
     private void rotateLeft() {
-        direction = "W";
+        if (direction == "N")
+            direction = "W";
+        else if (direction == "E")
+            direction = "N";
+        else if (direction == "S")
+            direction = "E";
+        else if (direction == "W")
+            direction = "S";
     }
 
     private void rotateRight() {
