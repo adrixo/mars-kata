@@ -11,6 +11,18 @@ public class Coordinate {
         this.y = y;
     }
 
+    Coordinate sum(Coordinate vector) {
+        int nextX = (x + vector.x) % VAR.GRID_SIZE;
+        int nextY = (y + vector.y) % VAR.GRID_SIZE;
+        if (nextX<0)
+            nextX = VAR.GRID_SIZE-1;
+        if (nextY<0)
+            nextY = VAR.GRID_SIZE-1;
+
+        Coordinate newCoordinate = new Coordinate(nextX, nextY);
+        return newCoordinate;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
