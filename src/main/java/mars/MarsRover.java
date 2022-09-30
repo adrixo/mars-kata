@@ -9,15 +9,19 @@ public class MarsRover {
 
     public String execute(String commands) {
         for(char c : commands.toCharArray()) {
-            if (direction == "N")
-                direction = "E";
-            else if (direction == "E")
-                direction = "S";
-            else if (direction == "S")
-                direction = "W";
-            else if (direction == "W")
-                direction = "N";
+            rotateRight();
         }
         return "0:0:" + direction;
+    }
+
+    private void rotateRight() {
+        if (direction == "N")
+            direction = "E";
+        else if (direction == "E")
+            direction = "S";
+        else if (direction == "S")
+            direction = "W";
+        else if (direction == "W")
+            direction = "N";
     }
 }
