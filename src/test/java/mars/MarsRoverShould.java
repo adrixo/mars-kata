@@ -20,7 +20,9 @@ class MarsRoverShould {
     @ParameterizedTest
     @CsvSource({
        "'R', '0:0:E'",
-       "'RR', '0:0:S'"
+       "'RR', '0:0:S'",
+       "'RRR', '0:0:W'",
+       "'RRRR', '0:0:N'"
     }) public void
     rotate_right(String commands, String expectedPosition) {
         assertThat(marsRover.execute(commands)).isEqualTo(expectedPosition);
