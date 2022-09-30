@@ -70,13 +70,13 @@ class MarsRoverShould {
 
     @ParameterizedTest
     @CsvSource({
-            "'RRM', '7:0:S'",
-            "'RRMM', '6:0:S'",
-            "'RRMMM', '5:0:S'",
-            "'RRMMMM', '4:0:S'",
-            "'RRMMMMM', '3:0:S'",
-            "'RRMMMMMM', '2:0:S'",
-            "'RRMMMMMMM', '1:0:S'",
+            "'RRM', '0:7:S'",
+            "'RRMM', '0:6:S'",
+            "'RRMMM', '0:5:S'",
+            "'RRMMMM', '0:4:S'",
+            "'RRMMMMM', '0:3:S'",
+            "'RRMMMMMM', '0:2:S'",
+            "'RRMMMMMMM', '0:1:S'",
             "'RRMMMMMMMM', '0:0:S'",
     }) public void
     move_forward_to_south(String commands, String expectedPosition) {
@@ -85,13 +85,13 @@ class MarsRoverShould {
 
     @ParameterizedTest
     @CsvSource({
-            "'LM', '0:7:W'",
-            "'LMM', '0:6:W'",
-            "'LMMM', '0:5:W'",
-            "'LMMMM', '0:4:W'",
-            "'LMMMMM', '0:3:W'",
-            "'LMMMMMM', '0:2:W'",
-            "'LMMMMMMM', '0:1:W'",
+            "'LM', '7:0:W'",
+            "'LMM', '6:0:W'",
+            "'LMMM', '5:0:W'",
+            "'LMMMM', '4:0:W'",
+            "'LMMMMM', '3:0:W'",
+            "'LMMMMMM', '2:0:W'",
+            "'LMMMMMMM', '1:0:W'",
             "'LMMMMMMMM', '0:0:W'",
     }) public void
     move_forward_to_west(String commands, String expectedPosition) {
