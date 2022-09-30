@@ -1,17 +1,32 @@
 package mars;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Grid {
-    public static Coordinate nextCoordinateFor(Coordinate origin, Coordinate vector) {
+    ArrayList<Coordinate> obstacles;
+
+    public Grid() {
+        this.obstacles = new ArrayList<>();
+    }
+
+    public Coordinate nextCoordinateFor(Coordinate origin, Coordinate vector) {
         int nextX = (origin.x +vector.x) % VAR.GRID_SIZE;
         int nextY = (origin.y +vector.y) % VAR.GRID_SIZE;
         if (nextX<0)
             nextX = VAR.GRID_SIZE-1;
         if (nextY<0)
             nextY = VAR.GRID_SIZE-1;
-        return new Coordinate(nextX, nextY);
+
+        Coordinate newCoordinate = new Coordinate(nextX, nextY);
+        for (Coordinate obstacle : this.obstacles) {
+            if (newCoordinate.equals(obstacle))
+                return origin;
+        }
+        return newCoordinate;
     }
 
     public void addObstacleAt(Coordinate obstacle) {
-        throw new UnsupportedOperationException();
+        obstacles.add(obstacle);
     }
 }

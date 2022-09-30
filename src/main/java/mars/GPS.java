@@ -30,7 +30,7 @@ public class GPS {
 
     public void moveForward() {
         Coordinate vector = direction.moveVector();
-        coordinate = Grid.nextCoordinateFor(coordinate, vector);
+        coordinate = grid.nextCoordinateFor(coordinate, vector);
     }
 
     public int getX() {

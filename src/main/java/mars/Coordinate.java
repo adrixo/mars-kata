@@ -9,4 +9,8 @@ public class Coordinate {
         this.y = y;
     }
 
+    public boolean equals(Coordinate other) {
+        return (x == other.x && y == other.y);
+    }
+
 }

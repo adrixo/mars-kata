@@ -103,13 +103,14 @@ class MarsRoverShould {
 
     @ParameterizedTest
     @CsvSource({
-            "'MMMM', '0:3', '0:2:M'",
-            "'MMMMMMMMM', '0:5', '0:4:M'",
+            "'MMMM', '0:3', '0:2:N'",
+            "'MMMMMMMM', '0:5', '0:4:N'",
     }) public void
     move_fordwards_and_stops_At_obstacle(String commands, String obstaclePosition, String expectedPosition) {
-        String[] op = obstaclePosition.split(':');
-        Coordinate obstacle = new Coordinate(op[0], op[1]);
+        String[] op = obstaclePosition.split(":");
+        Coordinate obstacle = new Coordinate(Integer.parseInt(op[0]), Integer.parseInt(op[1]));
         grid.addObstacleAt(obstacle);
+        marsRover = new MarsRover("0:0:N", grid);
         assertThat(marsRover.execute(commands)).isEqualTo(expectedPosition);
     }
 }
