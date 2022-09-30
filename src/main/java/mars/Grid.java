@@ -19,11 +19,9 @@ public class Grid {
             nextY = VAR.GRID_SIZE-1;
 
         Coordinate newCoordinate = new Coordinate(nextX, nextY);
-        for (Coordinate obstacle : this.obstacles) {
-            if (newCoordinate.equals(obstacle))
-                return origin;
-        }
-        return newCoordinate;
+        return obstacles.contains(newCoordinate)
+                ? origin
+                : newCoordinate;
     }
 
     public void addObstacleAt(Coordinate obstacle) {
