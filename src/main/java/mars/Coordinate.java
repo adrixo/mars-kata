@@ -1,10 +1,10 @@
 package mars;
 
 public class Coordinate {
-    public final String x;
-    public final String y;
+    public final int x;
+    public final int y;
 
-    public Coordinate(String x, String y) {
+    public Coordinate(int x, int y) {
         this.x = x;
         this.y = y;
     }

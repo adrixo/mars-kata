@@ -8,7 +8,9 @@ public class GPS {
 
     public GPS(String setupDirection) {
         String[] args = setupDirection.split(":");
-        coordinate = new Coordinate(args[0], args[1]);
+        int x = Integer.parseInt(args[0]);
+        int y = Integer.parseInt(args[1]);
+        coordinate = new Coordinate(x, y);
         direction = EDirection.getDirectionFor(args[2]);
     }
 
@@ -25,14 +27,14 @@ public class GPS {
     }
 
     public void moveForward() {
-
+        coordinate = new Coordinate(coordinate.x, coordinate.y+1);
     }
 
-    public String getX() {
+    public int getX() {
         return coordinate.x;
     }
 
-    public String getY() {
+    public int getY() {
         return coordinate.y;
     }
 }
