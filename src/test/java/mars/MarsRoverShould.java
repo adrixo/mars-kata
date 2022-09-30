@@ -110,7 +110,6 @@ class MarsRoverShould {
         String[] op = obstaclePosition.split(":");
         Coordinate obstacle = new Coordinate(Integer.parseInt(op[0]), Integer.parseInt(op[1]));
         grid.addObstacleAt(obstacle);
-        marsRover = new MarsRover("0:0:N", grid);
         assertThat(marsRover.execute(commands)).isEqualTo(expectedPosition);
     }
 }
