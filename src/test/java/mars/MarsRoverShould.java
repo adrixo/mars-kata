@@ -2,6 +2,8 @@ package mars;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
@@ -16,8 +18,12 @@ class MarsRoverShould {
         //Asume 0:0:N as default position
     }
 
-    @Test public void
-    rotate_right() {
-        assertThat(marsRover.execute("R")).isEqualTo("0:0:E");
+    @ParameterizedTest
+    @CsvSource({
+       "'R', '0:0:E'",
+       "'RR', '0:0:S'"
+    }) public void
+    rotate_right(String commands, String expectedPosition) {
+        assertThat(marsRover.execute(commands)).isEqualTo(expectedPosition);
     }
 }
