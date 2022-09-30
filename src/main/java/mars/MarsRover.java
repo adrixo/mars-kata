@@ -6,7 +6,6 @@ public class MarsRover {
 
     public MarsRover(String setupDirection) {
         gps = new GPS(setupDirection);
-
     }
 
     public String execute(String commands) {
@@ -15,8 +14,10 @@ public class MarsRover {
                 gps.rotateRight();
             if (c == 'L')
                 gps.rotateLeft();
+            if (c == 'M')
+                gps.moveForward();
         }
-        return "0:0:" + gps.getDirection();
+        return gps.getX()+":"+gps.getY()+":" + gps.getDirection();
     }
 
 }
