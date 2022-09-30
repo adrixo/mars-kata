@@ -10,4 +10,8 @@ public class Grid {
             nextY = VAR.GRID_SIZE-1;
         return new Coordinate(nextX, nextY);
     }
+
+    public void addObstacleAt(Coordinate obstacle) {
+        throw new UnsupportedOperationException();
+    }
 }

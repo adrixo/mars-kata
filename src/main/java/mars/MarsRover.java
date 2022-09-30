@@ -5,8 +5,8 @@ public class MarsRover {
     private final Grid grid;
     GPS gps;
 
-    public MarsRover(String setupDirection) {
-        grid = new Grid();
+    public MarsRover(String setupDirection, Grid grid) {
+        this.grid = grid;
         gps = new GPS(setupDirection, grid);
     }
 

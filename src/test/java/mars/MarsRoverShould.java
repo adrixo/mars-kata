@@ -1,20 +1,23 @@
 package mars;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class MarsRoverShould {
 
     private MarsRover marsRover;
+    private Grid grid;
 
     @BeforeEach
     void setUp() {
-        marsRover = new MarsRover("0:0:N");
+        grid = new Grid();
+        marsRover = new MarsRover("0:0:N", grid);
     }
 
     @ParameterizedTest
@@ -95,6 +98,18 @@ class MarsRoverShould {
             "'LMMMMMMMM', '0:0:W'",
     }) public void
     move_forward_to_west(String commands, String expectedPosition) {
+        assertThat(marsRover.execute(commands)).isEqualTo(expectedPosition);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "'MMMM', '0:3', '0:2:M'",
+            "'MMMMMMMMM', '0:5', '0:4:M'",
+    }) public void
+    move_fordwards_and_stops_At_obstacle(String commands, String obstaclePosition, String expectedPosition) {
+        String[] op = obstaclePosition.split(':');
+        Coordinate obstacle = new Coordinate(op[0], op[1]);
+        grid.addObstacleAt(obstacle);
         assertThat(marsRover.execute(commands)).isEqualTo(expectedPosition);
     }
 }
