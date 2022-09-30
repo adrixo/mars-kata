@@ -3,7 +3,7 @@ package mars;
 import mars.direction.*;
 
 public class GPS {
-    EDirection direction;
+    Direction direction;
     Coordinate coordinate;
 
     public GPS(String setupDirection) {
@@ -11,7 +11,7 @@ public class GPS {
         int x = Integer.parseInt(args[0]);
         int y = Integer.parseInt(args[1]);
         coordinate = new Coordinate(x, y);
-        direction = EDirection.getDirectionFor(args[2]);
+        direction = DirectionFactory.getDirectionFor(args[2]);
     }
 
     public String getDirection() {
