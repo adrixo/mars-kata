@@ -12,9 +12,13 @@ public class MarsRover {
             if (c == 'R')
                 rotateRight();
             if (c == 'L')
-                direction = "W";
+                rotateLeft();
         }
         return "0:0:" + direction;
+    }
+
+    private void rotateLeft() {
+        direction = "W";
     }
 
     private void rotateRight() {
