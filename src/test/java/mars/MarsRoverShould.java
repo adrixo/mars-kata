@@ -14,7 +14,7 @@ class MarsRoverShould {
 
     @BeforeEach
     void setUp() {
-        marsRover = new MarsRover("N");
+        marsRover = new MarsRover("0:0:N");
     }
 
     @ParameterizedTest
@@ -31,6 +31,9 @@ class MarsRoverShould {
     @ParameterizedTest
     @CsvSource({
             "'L', '0:0:W'",
+            "'LL', '0:0:S'",
+            "'LLL', '0:0:E'",
+            "'LLLL', '0:0:N'",
     }) public void
     rotate_left(String commands, String expectedPosition) {
         assertThat(marsRover.execute(commands)).isEqualTo(expectedPosition);
