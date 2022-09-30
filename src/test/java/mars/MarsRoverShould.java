@@ -68,4 +68,33 @@ class MarsRoverShould {
         assertThat(marsRover.execute(commands)).isEqualTo(expectedPosition);
     }
 
+    @ParameterizedTest
+    @CsvSource({
+            "'RRM', '7:0:S'",
+            "'RRMM', '6:0:S'",
+            "'RRMMM', '5:0:S'",
+            "'RRMMMM', '4:0:S'",
+            "'RRMMMMM', '3:0:S'",
+            "'RRMMMMMM', '2:0:S'",
+            "'RRMMMMMMM', '1:0:S'",
+            "'RRMMMMMMMM', '0:0:S'",
+    }) public void
+    move_forward_to_south(String commands, String expectedPosition) {
+        assertThat(marsRover.execute(commands)).isEqualTo(expectedPosition);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "'LM', '0:7:W'",
+            "'LMM', '0:6:W'",
+            "'LMMM', '0:5:W'",
+            "'LMMMM', '0:4:W'",
+            "'LMMMMM', '0:3:W'",
+            "'LMMMMMM', '0:2:W'",
+            "'LMMMMMMM', '0:1:W'",
+            "'LMMMMMMMM', '0:0:W'",
+    }) public void
+    move_forward_to_west(String commands, String expectedPosition) {
+        assertThat(marsRover.execute(commands)).isEqualTo(expectedPosition);
+    }
 }
