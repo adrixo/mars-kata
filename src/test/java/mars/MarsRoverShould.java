@@ -27,4 +27,12 @@ class MarsRoverShould {
     rotate_right(String commands, String expectedPosition) {
         assertThat(marsRover.execute(commands)).isEqualTo(expectedPosition);
     }
+
+    @ParameterizedTest
+    @CsvSource({
+            "'L', '0:0:W'",
+    }) public void
+    rotate_left(String commands, String expectedPosition) {
+        assertThat(marsRover.execute(commands)).isEqualTo(expectedPosition);
+    }
 }
