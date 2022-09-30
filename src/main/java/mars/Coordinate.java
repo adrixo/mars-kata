@@ -9,13 +9,4 @@ public class Coordinate {
         this.y = y;
     }
 
-    public Coordinate moveTo(Coordinate vector) {
-        int nextX = (x+vector.x) % VAR.GRID_SIZE;
-        int nextY = (y+vector.y) % VAR.GRID_SIZE;
-        if (nextX<0)
-            nextX = VAR.GRID_SIZE-1;
-        if (nextY<0)
-            nextY = VAR.GRID_SIZE-1;
-        return new Coordinate(nextX, nextY);
-    }
 }

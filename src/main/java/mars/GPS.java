@@ -3,10 +3,12 @@ package mars;
 import mars.direction.*;
 
 public class GPS {
+    private final Grid grid;
     Direction direction;
     Coordinate coordinate;
 
-    public GPS(String setupDirection) {
+    public GPS(String setupDirection, Grid grid) {
+        this.grid = grid;
         String[] args = setupDirection.split(":");
         int x = Integer.parseInt(args[0]);
         int y = Integer.parseInt(args[1]);
@@ -28,7 +30,7 @@ public class GPS {
 
     public void moveForward() {
         Coordinate vector = direction.moveVector();
-        coordinate = coordinate.moveTo(vector);
+        coordinate = Grid.nextCoordinateFor(coordinate, vector);
     }
 
     public int getX() {

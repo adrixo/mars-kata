@@ -2,10 +2,12 @@ package mars;
 
 public class MarsRover {
 
+    private final Grid grid;
     GPS gps;
 
     public MarsRover(String setupDirection) {
-        gps = new GPS(setupDirection);
+        grid = new Grid();
+        gps = new GPS(setupDirection, grid);
     }
 
     public String execute(String commands) {
