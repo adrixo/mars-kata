@@ -1,6 +1,6 @@
 package mars.direction;
 
-public enum EDirection {
+public enum EDirection implements Direction {
     NORTH("N","W","E"),
     EAST("E", "N", "S"),
     SOUTH("S", "E", "W"),
