@@ -14,7 +14,7 @@ class MarsRoverShould {
 
     @BeforeEach
     void setUp() {
-        marsRover = new MarsRover("N");
+        marsRover = new MarsRover("0:0:N");
     }
 
     @ParameterizedTest

@@ -1,6 +1,7 @@
 package mars.direction;
 
 public interface Direction {
-    public void rotateLeft(Direction direction);
-    public void rotateRight(Direction direction);
+    public String asString();
+    public Direction rotateLeft();
+    public Direction rotateRight();
 }

@@ -1,41 +1,22 @@
 package mars;
 
 public class MarsRover {
-    String direction;
 
-    public MarsRover(String direction) {
-        this.direction = direction;
+    GPS gps;
+
+    public MarsRover(String setupDirection) {
+        gps = new GPS(setupDirection);
+
     }
 
     public String execute(String commands) {
         for(char c : commands.toCharArray()) {
             if (c == 'R')
-                rotateRight();
+                gps.rotateRight();
             if (c == 'L')
-                rotateLeft();
+                gps.rotateLeft();
         }
-        return "0:0:" + direction;
+        return "0:0:" + gps.getDirection();
     }
 
-    private void rotateLeft() {
-        if (direction == "N")
-            direction = "W";
-        else if (direction == "E")
-            direction = "N";
-        else if (direction == "S")
-            direction = "E";
-        else if (direction == "W")
-            direction = "S";
-    }
-
-    private void rotateRight() {
-        if (direction == "N")
-            direction = "E";
-        else if (direction == "E")
-            direction = "S";
-        else if (direction == "S")
-            direction = "W";
-        else if (direction == "W")
-            direction = "N";
-    }
 }

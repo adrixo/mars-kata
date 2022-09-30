@@ -2,12 +2,16 @@ package mars.direction;
 
 public class East implements Direction {
     @Override
-    public void rotateLeft(Direction direction) {
-        direction = new North();
+    public String asString() {
+        return "E";
+    }
+    @Override
+    public Direction rotateLeft() {
+        return new North();
     }
 
     @Override
-    public void rotateRight(Direction direction) {
-        direction = new South();
+    public Direction rotateRight() {
+        return new South();
     }
 }
