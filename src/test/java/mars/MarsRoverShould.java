@@ -1,11 +1,10 @@
 package mars;
 
+import mars.structures.Coordinate;
+import mars.structures.Grid;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-
-import java.util.Arrays;
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -103,8 +102,8 @@ class MarsRoverShould {
 
     @ParameterizedTest
     @CsvSource({
-            "'MMMM', '0:3', '0:2:N'",
-            "'MMMMMMMM', '0:5', '0:4:N'",
+            "'MMMM', '0:3', 'C:0:2:N'",
+            "'MMMMMMMM', '0:5', 'C:0:4:N'",
     }) public void
     move_fordwards_and_stops_At_obstacle(String commands, String obstaclePosition, String expectedPosition) {
         String[] op = obstaclePosition.split(":");

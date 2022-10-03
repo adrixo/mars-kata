@@ -1,6 +1,6 @@
-package mars.direction;
+package mars.structures.direction;
 
-import mars.Coordinate;
+import mars.structures.Coordinate;
 
 public class West implements Direction {
     @Override

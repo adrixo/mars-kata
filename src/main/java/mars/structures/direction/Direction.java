@@ -1,6 +1,6 @@
-package mars.direction;
+package mars.structures.direction;
 
-import mars.Coordinate;
+import mars.structures.Coordinate;
 
 public interface Direction {
     public String asString();

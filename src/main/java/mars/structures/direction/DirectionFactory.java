@@ -1,6 +1,4 @@
-package mars.direction;
-
-import mars.direction.*;
+package mars.structures.direction;
 
 public class DirectionFactory {
 

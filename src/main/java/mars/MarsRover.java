@@ -1,5 +1,8 @@
 package mars;
 
+import mars.structures.Grid;
+import mars.widgets.GPS;
+
 public class MarsRover {
 
     private final Grid grid;
@@ -19,7 +22,7 @@ public class MarsRover {
             if (c == 'M')
                 gps.moveForward();
         }
-        return gps.getX()+":"+gps.getY()+":" + gps.getDirection();
+        return gps.getLocationAsString();
     }
 
 }

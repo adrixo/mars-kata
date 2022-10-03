@@ -1,6 +1,6 @@
-package mars.direction;
+package mars.structures.direction;
 
-import mars.Coordinate;
+import mars.structures.Coordinate;
 
 public enum EDirection implements Direction {
     NORTH("N","W","E"),

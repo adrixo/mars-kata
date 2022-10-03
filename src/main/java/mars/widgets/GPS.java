@@ -1,11 +1,16 @@
-package mars;
+package mars.widgets;
 
-import mars.direction.*;
+import mars.MarsRover;
+import mars.structures.Coordinate;
+import mars.structures.Grid;
+import mars.structures.direction.*;
 
 public class GPS {
     private final Grid grid;
     Direction direction;
     Coordinate coordinate;
+    // TODO: check optional objects in java (mancuso's video)
+    Boolean foundColision = false;
 
     public GPS(String setupDirection, Grid grid) {
         this.grid = grid;
@@ -30,7 +35,14 @@ public class GPS {
 
     public void moveForward() {
         Coordinate vector = direction.moveVector();
-        coordinate = grid.nextCoordinateFor(coordinate, vector);
+        // REF: see comment above
+        Coordinate newCoordinate = grid.nextCoordinateFor(coordinate, vector);
+        if (coordinate.equals(newCoordinate)) {
+            foundColision = true;
+        } else {
+            foundColision = false;
+        }
+        coordinate = newCoordinate;
     }
 
     public int getX() {
@@ -39,5 +51,12 @@ public class GPS {
 
     public int getY() {
         return coordinate.y;
+    }
+
+    public String getLocationAsString() {
+        String colisionFlag = foundColision
+                ? "C:"
+                : "";
+        return colisionFlag + getX() + ":" + getY() + ":" + getDirection();
     }
 }

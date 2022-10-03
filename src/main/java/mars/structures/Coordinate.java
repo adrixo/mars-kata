@@ -1,4 +1,4 @@
-package mars;
+package mars.structures;
 
 import java.util.Objects;
 
