@@ -1,28 +1,21 @@
 package mars;
 
+import mars.command.Factory;
 import mars.structures.Grid;
 import mars.widgets.GPS;
 
 public class MarsRover {
 
-    private final Grid grid;
     GPS gps;
+    Invoker invoker = new Invoker();
 
     public MarsRover(String setupDirection, Grid grid) {
-        this.grid = grid;
         gps = new GPS(setupDirection, grid);
     }
 
     public String execute(String commands) {
-        for(char c : commands.toCharArray()) {
-            if (c == 'R')
-                gps.rotateRight();
-            if (c == 'L')
-                gps.rotateLeft();
-            if (c == 'M')
-                gps.moveForward();
-        }
+        invoker.configure(Factory.parse(commands, gps));
+        invoker.executeQueue();
         return gps.getLocationAsString();
     }
-
 }
