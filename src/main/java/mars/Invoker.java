@@ -16,6 +16,7 @@ public class Invoker {
     }
 
     public void executeQueue() {
+        // TODO: One command each time (avoid execute queues in order)
         for(ArrayList<Command> queue: commandQueues) {
             while (queue.size()>0) {
                 Command c = queue.remove(0);
